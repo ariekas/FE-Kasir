@@ -3,7 +3,7 @@
 @section('title', 'Home Page')
 
 @section('content')
-    <div class="container mx-auto px-5 py-2 ">
+    <div class="container mx-auto px-5 py-2 lg:px-14">
         <div class="flex gap-1 items-center my-2">
             <p class="text-lg font-semibold">Admin</p>
             <p class="text-lg  font-light">Dashboard</p>
@@ -190,12 +190,45 @@
                             <td class="py-2 px-4">50%</td>
                             <td class="py-2 px-4">2025-11-29</td>
                             <td class="py-2 px-4 flex justify-center gap-2">
-                                <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-3 rounded">Edit</button>
+                                <button onclick="toggleModal()" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-3 rounded">Edit</button>
                                 <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded">Disable</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+        <div id="modal" class="fixed inset-0 flex items-center justify-center hidden bg-black/50 ">
+            <div class="bg-white rounded-lg shadow-lg w-96 p-4">
+                <div class="flex gap-1 items-center justify-between">
+                    <div class="flex gap-1 items-center">
+                        <p class="text-lg font-semibold">Modal</p>
+                        <p class="text-lg font-light">Discount Management</p>
+                    </div>
+                    <button onclick="toggleModal()" class="px-4 py-2 text-red-500 text-2xl cursor-pointer">
+                        X
+                    </button>
+                </div>
+
+                <div class="flex-col space-y-3">
+                    <div class="">
+                        <label for="name" class="text-lg font-semibold  mb-3">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Enter name" class="w-full border border-gray-300 rounded p-2 ">
+                    </div>
+                    <div class="">
+                        <label for="name" class="text-lg font-semibold  mb-3">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Enter name" class="w-full border border-gray-300 rounded p-2 ">
+                    </div>
+                    <div class="">
+                        <label for="name" class="text-lg font-semibold  mb-3">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Enter name" class="w-full border border-gray-300 rounded p-2 ">
+                    </div>
+                </div>
+                
+                <button class="bg-[#FF2351] text-white font-bold py-1.5 rounded-md px-5 ml-auto flex justify-end mt-4">
+                    Save
+                </button>
             </div>
         </div>
 
@@ -275,5 +308,17 @@
                 }]
             }
         });
+
+        function openModal(name, category, price, stock) {
+            document.querySelector('[x-data]').__x.$data.isOpen = true;
+            document.querySelector('[x-data]').__x.$data.name = name;
+            document.querySelector('[x-data]').__x.$data.category = category;
+            document.querySelector('[x-data]').__x.$data.price = price;
+            document.querySelector('[x-data]').__x.$data.stock = stock;
+        }
+
+        function toggleModal() {
+            document.getElementById('modal').classList.toggle('hidden')
+        }
     </script>
 @endsection
