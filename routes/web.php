@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', admin::class, 'index')->name('adminDashboard');
+
+Route::get('/admin', [App\Http\Controllers\adminController::class, 'index'])->name('adminDashboard');
+Route::get('/', [App\Http\Controllers\userController::class, 'index'])->name('userDashboard');
+Route::get('/members', [App\Http\Controllers\userController::class, 'members'])->name('members');
+Route::get('/penjaga_gudang', [App\Http\Controllers\userController::class, 'penjaga_gudang'])->name('penjaga_gudang');
