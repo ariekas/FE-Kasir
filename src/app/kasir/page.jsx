@@ -1,7 +1,6 @@
 'use client';
 import Image from "next/image";
 import { useState } from 'react';
-import navBar from "./component/navbar";
 
 export default function Home() {
   const [memberPhone, setMemberPhone] = useState('');
@@ -80,7 +79,7 @@ export default function Home() {
           </div>
           {/* end card */}
         </div>
-        <div className="px-5 py-2 rounded-lg border border-gray-100 shadow-lg md:max-h-max md:mt-3 xl:min-w-lg md:mr-5">
+        <div className="px-5 py-2 rounded-lg border border-gray-100 shadow-lg md:max-h-max md:mt-3 xl:min-w-lg md:mr-5 ">
           <div className="flex justify-between items-center ">
             <h1>Detail Orders</h1>
             <button className="border-none text-sm text-[#ff2351] cursor-pointer">Clear order</button>
